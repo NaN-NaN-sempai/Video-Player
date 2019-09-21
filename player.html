@@ -1,0 +1,79 @@
+﻿<html>
+<head>
+<script type="text/javascript" src="player.js"></script>
+
+<link rel="stylesheet" type="text/css" href="player.css">
+<style data="Estilo" type="text/css"></style>
+
+</head>
+<meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1" />
+<meta charset="UTF-8" />
+<body>
+<div id="wrapper">
+ <div id='player_wrapper' onmousemove="onMouseOverFNC(event)">
+<video id='video_player' onloadedmetadata="startplayer()">
+<source id="idDoVideo" src='video.mp4' type='video/mp4'>
+</video>
+<div id="botoes">
+
+<div id="playPosicao">
+<input class="btnClass" type="image" src="botões/playbtn.png" onclick="iniciarPausarVideo()" id="botaoPlayVideo">
+</div>
+
+<div id="botoesTopo"></div>
+
+<div id="configBackground">
+<input id="botaoConfigurar" class="btnClass" type="image" src="botões/configbtn.png" onclick="dropdownConfig()">
+</div>
+
+<div id="botoesVolume">
+<input type="image" class="btnClass" src="botões/volumebtn.png" onclick="mostrarVolume()" id="vol_img">
+<div id="volSliderDrop">
+<input class="sliderEstilo" type="range" id="change_vol" oninput="change_vol()" step="any"  min="0" max="1" value="1">
+<input type="image" class="btnClass" src="botões/volumebtn.png" onclick="mutarUmutar()" id="vol_img2">  
+</div>  
+</div>
+
+<input id="botaoFullscreen" class="btnClass" type="image" src="botões/fullscreenbtn.png" onclick='telaCheia()'>
+
+
+<div id='player_controls'>
+
+<div id="controlesBasicos" onmouseover="thumbOpacity(1)" onmouseout="thumbOpacity(0)">
+<progress id="barraDeProgresso" value="0" max="100"></progress>
+<input class="sliderEstilo" type="range" id="mudarTimer" oninput="playerUpdateOninput()" onmouseup="videoClicked = 0; bolhaOpacity();" step="any" min="0" max="1" value="0">
+<div id="tempoVideo" class="btnClass">00:00 / 00:00</div>
+<div id="tempoVideo2" class="btnClass">00:00</div>
+<div id="bolhaTimer"><p id="bolhaTexto">00:00</p></div>
+</div>
+
+<div id="clicaveis">
+<div id="clicaveis1"></div><div id="clicaveis2"></div><div id="clicaveis3"></div>
+</div>
+
+<div id="configDrop">
+<span class="configSpan configBottom"><p class="btnClass">&#8595; Role para baixo &#8595;</p></span>
+<input id="closeConfig" type="image" src="botões/close.png" class="btnClass" onclick="dropdownConfig()">
+<div id="configDropContent">
+        <span class="configSpan naoFechar"><p class="btnClass naoFechar">Iniciar altomaticamente o vídeo: </p><input class="confgSliderOff sliderConfigEstilo sliderEstilo naoFechar" type="range" id="autoplaySet" oninput="autoplaySet(this.value)" min="0" max="1" value="0"></span>
+        <br>
+        <span class="configSpan naoFechar"><p class="btnClass naoFechar">Salvar volume do som: </p><input class="confgSliderOff sliderConfigEstilo sliderEstilo naoFechar" type="range" id="autovolSet" oninput="autovolSet(this.value)" min="0" max="1" value="0"></span>
+        <br>
+        <span class="configSpan naoFechar"><p class="btnClass naoFechar">Tempo para UI sumir (em segundos): </p><input class="naoFechar" id="mudarTempo" style="float: right;" oninput="definirTempo(this.value)" type="number" min="0"></span>
+        <br>
+        <span class="configSpan naoFechar"><p class="btnClass naoFechar">Redefinir tempo para UI sumir: </p><input class="naoFechar" style="float: right; naoFechar" onclick="redefinirTempo()" type="button" value="Redefinir"></span>
+        <br>
+</div>
+</div>
+
+
+</div>
+</div>
+</div>
+
+<div id="showVolVal"><span class="volSpan"><input type="image" class="btnClass" src="botões/volumebtn.png" id="vol_img3"> <p id="showVolValValue">0%</p></span></div>
+
+</div>
+
+</body>
+</html>
