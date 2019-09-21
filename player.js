@@ -58,6 +58,11 @@ function calcularPorcetagem(num, tot){
     return num/tot*100;
 }
 
+function selectVideo(url){
+    document.getElementById("idDoVideo").setAttribute('src', url);
+    document.getElementById("video_player").load();
+}
+
 function startplayer() {
 player = document.getElementById('video_player');
 player.ontimeupdate = function() {playerUpdate(0)};
